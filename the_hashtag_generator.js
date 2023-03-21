@@ -15,7 +15,9 @@ function generateHashtag (str) {
   const result = [];
   const array = str.trim().split(' ');
   array.forEach(element => {
-    result.push(element.charAt(0).toUpperCase() + element.slice(1));
+    if (!element == '') {
+      result.push(element.charAt(0).toUpperCase() + element.slice(1));
+    }
   });
   if ((result == '') || ((/.{140}/).test(result))) {
     return false;
@@ -25,6 +27,3 @@ function generateHashtag (str) {
     return result.join('');
   }
 }
-
-generateHashtag("Do We have A Hashtag")
-generateHashtag("Codewars")
