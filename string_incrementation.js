@@ -12,5 +12,24 @@
 // Attention: If the number has leading zeros the amount of digits should be considered.
 
 function incrementString (strng) {
-  // return incrementedString
+  const string = [];
+  const number = [];
+  const zero = [];
+  const array = strng.split('');
+  array.forEach(element => {
+    if ((/\d/).test(element)) {
+      number.push(element);
+    } else {
+      string.push(element);
+    }
+  });
+  console.log(string);
+  console.log(number);
+  console.log(string.join('') + ((Number(number.join('')))+1).toString());
+  return (string.join('') + ((Number(number.join('')))+1).toString());
 }
+
+incrementString('foobar001');
+incrementString('foobar999');
+incrementString('foobar00999');
+incrementString('foo');
